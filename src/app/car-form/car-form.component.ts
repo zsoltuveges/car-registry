@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup} from "@angular/forms";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {CarFormService} from "../services/carForm.service";
 
 @Component({
@@ -15,8 +15,8 @@ export class CarFormComponent implements OnInit {
 
   ngOnInit() {
     this.carForm = new FormGroup({
-      'brand': new FormControl(null),
-      'model': new FormControl(null),
+      'brand': new FormControl(null, [Validators.required]),
+      'model': new FormControl(null, [Validators.required]),
       'color': new FormControl(null),
       'buildDate': new FormControl(null)
     })
