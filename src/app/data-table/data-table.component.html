@@ -2,23 +2,25 @@
 <table *ngIf="cars.length > 0" mat-table [dataSource]="cars" class="mat-elevation-z8">
 
   <ng-container matColumnDef="brand">
-    <th mat-header-cell *matHeaderCellDef> Gyártó </th>
-    <td mat-cell *matCellDef="let car"> {{car.brand}} </td>
+    <th class="table-text" mat-header-cell *matHeaderCellDef> Gyártó</th>
+    <td class="table-text" mat-cell *matCellDef="let car"> {{car.brand}}</td>
   </ng-container>
 
   <ng-container matColumnDef="model">
-    <th mat-header-cell *matHeaderCellDef> Típus </th>
-    <td mat-cell *matCellDef="let car"> {{car.model}} </td>
+    <th class="table-text" mat-header-cell *matHeaderCellDef> Típus</th>
+    <td class="table-text" mat-cell *matCellDef="let car"> {{car.model}}</td>
   </ng-container>
 
   <ng-container matColumnDef="color">
-    <th mat-header-cell *matHeaderCellDef> Szín </th>
-    <td mat-cell *matCellDef="let car"> {{car.color}} </td>
+    <th class="table-text" mat-header-cell *matHeaderCellDef> Szín</th>
+    <td class="table-text" mat-cell *matCellDef="let car">
+      <i class="fas fa-car fa-2x" [ngStyle]="{'color': car.color}"></i>
+    </td>
   </ng-container>
 
   <ng-container matColumnDef="buildDate">
-    <th mat-header-cell *matHeaderCellDef> Gyártási Dátum </th>
-    <td mat-cell *matCellDef="let car"> {{car.buildDate | date:'yyyy.MM.dd.'}} </td>
+    <th class="table-text" mat-header-cell *matHeaderCellDef> Gyártási Dátum</th>
+    <td class="table-text" mat-cell *matCellDef="let car"> {{car.buildDate | date:'yyyy.MM.dd.'}}</td>
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
