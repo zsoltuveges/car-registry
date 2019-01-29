@@ -1,18 +1,18 @@
-<form class="example-form">
+<form [formGroup]="carForm" (ngSubmit)="onSubmit()">
   <mat-form-field>
-    <input matInput placeholder="Gyártó" required>
+    <input matInput placeholder="Gyártó" required formControlName="brand">
   </mat-form-field>
   <br>
   <mat-form-field>
-    <input matInput placeholder="Típus" required>
+    <input matInput placeholder="Típus" required formControlName="model">
   </mat-form-field>
   <br>
   <mat-form-field>
-    <input matInput type="color" value="#ffffff" placeholder="Szín">
+    <input matInput type="color" value="#ffffff" placeholder="Szín" formControlName="color">
   </mat-form-field>
   <br>
   <mat-form-field>
-    <input matInput [matDatepicker]="picker" placeholder="Gyártási időpont">
+    <input matInput [matDatepicker]="picker" placeholder="Gyártási időpont" formControlName="buildDate">
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
   </mat-form-field>
