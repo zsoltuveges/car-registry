@@ -24,6 +24,7 @@ export class CarFormComponent implements OnInit {
 
   onSubmit() {
     this.carFormService.addCar(this.carForm['value']);
+    this.carForm.reset();
   }
 
 }
