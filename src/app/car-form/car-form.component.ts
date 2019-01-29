@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
+import {CarFormService} from "../services/carForm.service";
 
 @Component({
   selector: 'app-car-form',
@@ -9,7 +10,8 @@ import {FormControl, FormGroup} from "@angular/forms";
 export class CarFormComponent implements OnInit {
   carForm: FormGroup;
 
-  constructor() { }
+  constructor(private carFormService: CarFormService) {
+  }
 
   ngOnInit() {
     this.carForm = new FormGroup({
@@ -21,6 +23,7 @@ export class CarFormComponent implements OnInit {
   }
 
   onSubmit() {
+    this.carFormService.addCar(this.carForm['value']);
   }
 
 }
