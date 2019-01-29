@@ -17,7 +17,7 @@
 
   <ng-container matColumnDef="buildDate">
     <th mat-header-cell *matHeaderCellDef> Gyártási Dátum </th>
-    <td mat-cell *matCellDef="let car"> {{car.buildDate}} </td>
+    <td mat-cell *matCellDef="let car"> {{car.buildDate | date:'yyyy.MM.dd.'}} </td>
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
