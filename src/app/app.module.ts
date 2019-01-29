@@ -11,7 +11,7 @@ import {
   MatFormFieldModule,
   MatInputModule,
   MatDatepickerModule,
-  MatNativeDateModule,
+  MatNativeDateModule, MatTableModule,
 } from "@angular/material";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
@@ -30,7 +30,8 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     MatFormFieldModule,
     MatInputModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
