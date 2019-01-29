@@ -14,6 +14,7 @@ import {
   MatNativeDateModule, MatTableModule,
 } from "@angular/material";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {CarFormService} from "./services/carForm.service";
 
 @NgModule({
   declarations: [
@@ -33,7 +34,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     MatNativeDateModule,
     MatTableModule
   ],
-  providers: [],
+  providers: [CarFormService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
