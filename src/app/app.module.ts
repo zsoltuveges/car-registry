@@ -11,7 +11,8 @@ import {
   MatFormFieldModule,
   MatInputModule,
   MatDatepickerModule,
-  MatNativeDateModule, MatTableModule,
+  MatNativeDateModule,
+  MatTableModule
 } from "@angular/material";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {CarFormService} from "./services/carForm.service";
