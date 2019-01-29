@@ -19,7 +19,7 @@ export class DataTableComponent implements OnInit {
       (cars: CarModel[]) => {
         this.cars = cars;
       }
-    )
+    );
   }
 
 }

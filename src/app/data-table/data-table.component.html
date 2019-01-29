@@ -1,4 +1,5 @@
-<table mat-table [dataSource]="cars" class="mat-elevation-z8">
+<h2 class="mat-h2" *ngIf="cars.length === 0">Nincs adat</h2>
+<table *ngIf="cars.length > 0" mat-table [dataSource]="cars" class="mat-elevation-z8">
 
   <ng-container matColumnDef="brand">
     <th mat-header-cell *matHeaderCellDef> Gyártó </th>
