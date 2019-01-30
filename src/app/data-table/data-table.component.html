@@ -14,7 +14,13 @@
   <ng-container matColumnDef="color">
     <th class="table-text" mat-header-cell *matHeaderCellDef> Szín</th>
     <td class="table-text" mat-cell *matCellDef="let car">
-      <i *ngIf="car.color !== null" class="fas fa-car fa-2x" [ngStyle]="{'color': car.color}"></i>
+      <span *ngIf="car.color !== null" class="color-text">{{ car.color }}</span><i *ngIf="car.color !== null" class="fas fa-car fa-2x"
+                                     [ngStyle]="{'color': car.color}"></i>
+      <i *ngIf="car.color === '#ffffff'" class="fas fa-car fa-2x"
+         [ngStyle]="{'color': car.color,
+      'background-color': 'black',
+      'border': '5px solid black',
+      'border-radius': '5px'}"></i>
       <p *ngIf="car.color === null" class="mat-body">Nincs szín beállítva</p>
     </td>
   </ng-container>
