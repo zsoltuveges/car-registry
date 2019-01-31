@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {CarModel} from "../models/car.model";
-import {CarFormService} from "../services/carForm.service";
+import {CarModel} from '../models/car.model';
+import {CarFormService} from '../services/carForm.service';
+import {FirebaseService} from '../services/firebase.service';
 
 @Component({
   selector: 'app-data-table',
@@ -11,13 +12,20 @@ export class DataTableComponent implements OnInit {
   displayedColumns: string[] = ['brand', 'model', 'color', 'buildDate'];
   cars: CarModel[];
 
-  constructor(private carFormService: CarFormService) { }
+  constructor(private carFormService: CarFormService,
+              private firebaseService: FirebaseService) { }
 
   ngOnInit() {
-    this.cars = this.carFormService.getCars();
-    this.carFormService.carsChanged.subscribe(
-      (cars: CarModel[]) => {
-        this.cars = cars;
+    // This is for in-memory storing
+    // this.cars = this.carFormService.getCars();
+    // this.carFormService.carsChanged.subscribe(
+    //   (cars: CarModel[]) => {
+    //     this.cars = cars;
+    //   }
+    // );
+    this.firebaseService.getCars().subscribe(
+      (response: CarModel[]) => {
+        this.cars = response;
       }
     );
   }
