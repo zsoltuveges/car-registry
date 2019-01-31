@@ -19,6 +19,7 @@ import {CarFormService} from './services/carForm.service';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { environment } from 'src/environments/environment';
+import {FirebaseService} from './services/firebase.service';
 
 @NgModule({
   declarations: [
@@ -37,10 +38,10 @@ import { environment } from 'src/environments/environment';
     MatDatepickerModule,
     MatNativeDateModule,
     MatTableModule,
-    AngularFireModule.initializeApp(environment.firebase, 'car-registry'),
+    AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule
   ],
-  providers: [CarFormService],
+  providers: [CarFormService, FirebaseService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
