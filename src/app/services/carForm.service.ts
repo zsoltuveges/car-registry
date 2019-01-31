@@ -1,6 +1,6 @@
-import {Injectable} from "@angular/core";
-import {CarModel} from "../models/car.model";
-import {Subject} from "rxjs";
+import {Injectable} from '@angular/core';
+import {CarModel} from '../models/car.model';
+import {Subject} from 'rxjs';
 
 @Injectable()
 export class CarFormService {
@@ -13,7 +13,7 @@ export class CarFormService {
 
   addCar(car: CarModel) {
     this.cars.push(car);
-    this.carsChanged.next(this.cars.slice())
+    this.carsChanged.next(this.cars.slice());
   }
 
   getCars() {
