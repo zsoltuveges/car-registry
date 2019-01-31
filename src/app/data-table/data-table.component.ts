@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {CarModel} from '../models/car.model';
 import {CarFormService} from '../services/carForm.service';
 import {FirebaseService} from '../services/firebase.service';
@@ -11,9 +11,11 @@ import {FirebaseService} from '../services/firebase.service';
 export class DataTableComponent implements OnInit {
   displayedColumns: string[] = ['brand', 'model', 'color', 'buildDate'];
   cars: CarModel[];
+  isLoading = true;
 
   constructor(private carFormService: CarFormService,
-              private firebaseService: FirebaseService) { }
+              private firebaseService: FirebaseService) {
+  }
 
   ngOnInit() {
     // This is for in-memory storing
@@ -26,8 +28,8 @@ export class DataTableComponent implements OnInit {
     this.firebaseService.getCars().subscribe(
       (response: CarModel[]) => {
         this.cars = response;
+        this.isLoading = false;
       }
     );
   }
-
 }

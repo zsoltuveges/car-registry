@@ -1,37 +1,43 @@
-<h2 class="mat-h2" *ngIf="cars.length === 0">Nincs adat</h2>
-<table *ngIf="cars.length > 0" mat-table [dataSource]="cars" class="mat-elevation-z8">
+<mat-progress-spinner *ngIf="isLoading"
+                      class="spinner"
+                      color="accent"
+                      mode="indeterminate">
+</mat-progress-spinner>
+<div *ngIf="!isLoading">
+  <h2 class="mat-h2" *ngIf="cars.length === 0">Nincs adat</h2>
+  <table *ngIf="cars.length > 0" mat-table [dataSource]="cars" class="mat-elevation-z8">
+    <ng-container matColumnDef="brand">
+      <th class="table-text" mat-header-cell *matHeaderCellDef> Gyártó</th>
+      <td class="table-text" mat-cell *matCellDef="let car"> {{car.brand}}</td>
+    </ng-container>
 
-  <ng-container matColumnDef="brand">
-    <th class="table-text" mat-header-cell *matHeaderCellDef> Gyártó</th>
-    <td class="table-text" mat-cell *matCellDef="let car"> {{car.brand}}</td>
-  </ng-container>
+    <ng-container matColumnDef="model">
+      <th class="table-text" mat-header-cell *matHeaderCellDef> Típus</th>
+      <td class="table-text" mat-cell *matCellDef="let car"> {{car.model}}</td>
+    </ng-container>
 
-  <ng-container matColumnDef="model">
-    <th class="table-text" mat-header-cell *matHeaderCellDef> Típus</th>
-    <td class="table-text" mat-cell *matCellDef="let car"> {{car.model}}</td>
-  </ng-container>
-
-  <ng-container matColumnDef="color">
-    <th class="table-text" mat-header-cell *matHeaderCellDef> Szín</th>
-    <td class="table-text" mat-cell *matCellDef="let car">
-      <span *ngIf="car.color !== null" class="color-text">{{ car.color }}</span>
-      <i *ngIf="car.color !== null && car.color !== '#ffffff'" class="fas fa-car fa-2x"
-                                     [ngStyle]="{'color': car.color}"></i>
-      <i *ngIf="car.color === '#ffffff'" class="fas fa-car fa-2x"
-         [ngStyle]="{'color': car.color,
+    <ng-container matColumnDef="color">
+      <th class="table-text" mat-header-cell *matHeaderCellDef> Szín</th>
+      <td class="table-text" mat-cell *matCellDef="let car">
+        <span *ngIf="car.color !== null" class="color-text">{{ car.color }}</span>
+        <i *ngIf="car.color !== null && car.color !== '#ffffff'" class="fas fa-car fa-2x"
+           [ngStyle]="{'color': car.color}"></i>
+        <i *ngIf="car.color === '#ffffff'" class="fas fa-car fa-2x"
+           [ngStyle]="{'color': car.color,
       'background-color': 'black',
       'border': '5px solid black',
       'border-radius': '5px'}"></i>
-      <p *ngIf="car.color === null" class="mat-body">Nincs szín beállítva</p>
-    </td>
-  </ng-container>
+        <p *ngIf="car.color === null" class="mat-body">Nincs szín beállítva</p>
+      </td>
+    </ng-container>
 
-  <ng-container matColumnDef="buildDate">
-    <th class="table-text" mat-header-cell *matHeaderCellDef> Gyártási Dátum</th>
-    <td class="table-text" mat-cell *matCellDef="let car"> {{car.buildDate | date:'yyyy.MM.dd.'}}</td>
-  </ng-container>
+    <ng-container matColumnDef="buildDate">
+      <th class="table-text" mat-header-cell *matHeaderCellDef> Gyártási Dátum</th>
+      <td class="table-text" mat-cell *matCellDef="let car"> {{car.buildDate | date:'yyyy.MM.dd.'}}</td>
+    </ng-container>
 
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
-</table>
+  </table>
+</div>

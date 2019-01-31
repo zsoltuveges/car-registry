@@ -12,7 +12,8 @@ import {
   MatInputModule,
   MatDatepickerModule,
   MatNativeDateModule,
-  MatTableModule
+  MatTableModule,
+  MatProgressSpinnerModule
 } from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {CarFormService} from './services/carForm.service';
@@ -38,6 +39,7 @@ import {FirebaseService} from './services/firebase.service';
     MatDatepickerModule,
     MatNativeDateModule,
     MatTableModule,
+    MatProgressSpinnerModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule
   ],
