@@ -24,7 +24,9 @@
     "@angular/router": "^6.1.0",
     "angularfire2": "^5.1.1",
     "core-js": "^2.5.4",
+    "express": "^4.16.4",
     "firebase": "^5.8.1",
+    "path": "^0.12.7",
     "rxjs": "^6.0.0",
     "zone.js": "~0.8.26"
   },
