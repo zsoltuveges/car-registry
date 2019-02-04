@@ -1,12 +1,17 @@
 .mat-elevation-z8 {
-  width: 100%;
+  width: 95%;
   border-radius: 10px;
   border: 10px solid white;
   padding: 10px;
+  background-color: white;
 }
 
 .table-text {
   text-align: center;
+}
+
+.car-table {
+  width: 100%;
 }
 
 .color-text {
