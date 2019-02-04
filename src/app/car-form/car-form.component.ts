@@ -32,6 +32,7 @@ export class CarFormComponent implements OnInit {
   onSubmitToFirebase() {
     this.carForm['value'].buildDate = new Date(this.carForm['value'].buildDate.toDateString()).toDateString();
     this.firebaseService.addCar(this.carForm['value']);
+    this.carForm.reset();
   }
 
 }
