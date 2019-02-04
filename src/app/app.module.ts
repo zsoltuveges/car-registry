@@ -14,7 +14,8 @@ import {
   MatNativeDateModule,
   MatTableModule,
   MatProgressSpinnerModule,
-  MatPaginatorModule
+  MatPaginatorModule,
+  MatAutocompleteModule
 } from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {CarFormService} from './services/carForm.service';
@@ -22,6 +23,7 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { environment } from 'src/environments/environment';
 import {FirebaseService} from './services/firebase.service';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -42,8 +44,10 @@ import {FirebaseService} from './services/firebase.service';
     MatTableModule,
     MatPaginatorModule,
     MatProgressSpinnerModule,
+    MatAutocompleteModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    HttpClientModule
   ],
   providers: [CarFormService, FirebaseService],
   bootstrap: [AppComponent]

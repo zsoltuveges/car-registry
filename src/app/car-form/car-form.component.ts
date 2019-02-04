@@ -10,6 +10,8 @@ import {FirebaseService} from '../services/firebase.service';
 })
 export class CarFormComponent implements OnInit {
   carForm: FormGroup;
+  colors: string[];
+
 
   constructor(private carFormService: CarFormService,
               private firebaseService: FirebaseService) {
@@ -22,6 +24,11 @@ export class CarFormComponent implements OnInit {
       'color': new FormControl(null),
       'buildDate': new FormControl(null)
     });
+    this.carFormService.getColorList().subscribe(
+      (response: any) => {
+        this.colors = response['colors'];
+      }
+  );
   }
 
   onSubmitToMemory() {
