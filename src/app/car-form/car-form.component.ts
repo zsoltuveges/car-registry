@@ -1,7 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {CarFormService} from '../services/carForm.service';
 import {FirebaseService} from '../services/firebase.service';
+import {Observable} from 'rxjs';
+import {map, startWith} from 'rxjs/operators';
 
 @Component({
   selector: 'app-car-form',
@@ -10,7 +12,8 @@ import {FirebaseService} from '../services/firebase.service';
 })
 export class CarFormComponent implements OnInit {
   carForm: FormGroup;
-  colors: string[];
+  colors: string[] = [];
+  filteredOptions: Observable<string[]>;
 
 
   constructor(private carFormService: CarFormService,
@@ -22,13 +25,24 @@ export class CarFormComponent implements OnInit {
       'brand': new FormControl(null, [Validators.required]),
       'model': new FormControl(null, [Validators.required]),
       'color': new FormControl(null),
-      'buildDate': new FormControl(null)
+      'buildDate': new FormControl(null, [Validators.required])
     });
     this.carFormService.getColorList().subscribe(
       (response: any) => {
         this.colors = response['colors'];
+        this.filteredOptions = this.carForm.get('color').valueChanges
+          .pipe(
+            startWith(''),
+            map(value => this._filter(value))
+          );
       }
-  );
+    );
+  }
+
+  private _filter(value): string[] {
+    const filterValue = value.toLowerCase();
+
+    return this.colors.filter(color => color.toLowerCase().includes(filterValue));
   }
 
   onSubmitToMemory() {

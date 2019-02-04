@@ -11,13 +11,13 @@
     <input matInput placeholder="Szín" formControlName="color" [matAutocomplete]="auto">
   </mat-form-field>
   <mat-autocomplete #auto="matAutocomplete">
-    <mat-option *ngFor="let color of colors" [value]="color">
+    <mat-option *ngFor="let color of filteredOptions | async" [value]="color">
       {{ color }}
     </mat-option>
   </mat-autocomplete>
   <br>
   <mat-form-field class="car-form-field">
-    <input matInput [matDatepicker]="picker" placeholder="Gyártási időpont" formControlName="buildDate">
+    <input required matInput [matDatepicker]="picker" placeholder="Gyártási időpont" formControlName="buildDate">
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
   </mat-form-field>

@@ -5,7 +5,7 @@
 </mat-progress-spinner>
 <div [hidden]="isLoading">
   <h2 class="mat-h2" *ngIf="dataSource?.filteredData.length === 0">Nincs adat</h2>
-  <div [hidden]="dataSource?.filteredData.length <= 0"  class="mat-elevation-z8">
+  <div [hidden]="dataSource?.filteredData.length <= 0" class="mat-elevation-z8">
     <table class="car-table" mat-table [dataSource]="dataSource">
       <ng-container matColumnDef="brand">
         <th class="table-text" mat-header-cell *matHeaderCellDef> Gyártó</th>
@@ -20,15 +20,8 @@
       <ng-container matColumnDef="color">
         <th class="table-text" mat-header-cell *matHeaderCellDef> Szín</th>
         <td class="table-text" mat-cell *matCellDef="let car">
-          <span *ngIf="car.color !== null" class="color-text">{{ car.color }}</span>
-          <i *ngIf="car.color !== null && car.color !== '#ffffff'" class="fas fa-car fa-2x"
-             [ngStyle]="{'color': car.color}"></i>
-          <i *ngIf="car.color === '#ffffff'" class="fas fa-car fa-2x"
-             [ngStyle]="{'color': car.color,
-      'background-color': 'black',
-      'border': '5px solid black',
-      'border-radius': '5px'}"></i>
-          <p *ngIf="car.color === null" class="mat-body">Nincs szín beállítva</p>
+          <p *ngIf="car.color !== null">{{ car.color }}</p>
+          <p *ngIf="car.color === undefined" class="mat-body">Nincs szín beállítva</p>
         </td>
       </ng-container>
 
