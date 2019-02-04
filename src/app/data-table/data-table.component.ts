@@ -33,7 +33,7 @@ export class DataTableComponent implements OnInit, AfterViewInit {
     // );
     this.firebaseService.getCars().subscribe(
       (response: CarModel[]) => {
-        this.dataSource.data = response;
+        this.dataSource.data = response.reverse();
         this.isLoading = false;
       }
     );
