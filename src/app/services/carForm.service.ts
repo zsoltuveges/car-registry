@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {CarModel} from '../models/car.model';
 import {Subject} from 'rxjs';
+import {HttpClient} from '@angular/common/http';
 
 @Injectable()
 export class CarFormService {
@@ -8,7 +9,7 @@ export class CarFormService {
   private cars: CarModel[] = [];
 
 
-  constructor() {
+  constructor(private http: HttpClient) {
   }
 
   addCar(car: CarModel) {
@@ -18,5 +19,9 @@ export class CarFormService {
 
   getCars() {
     return this.cars.slice();
+  }
+
+  getColorList() {
+    return this.http.get('./assets/colors.json');
   }
 }
