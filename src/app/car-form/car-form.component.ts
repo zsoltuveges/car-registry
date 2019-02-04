@@ -22,7 +22,7 @@ export class CarFormComponent implements OnInit {
       'brand': new FormControl(null, [Validators.required]),
       'model': new FormControl(null, [Validators.required]),
       'color': new FormControl(null),
-      'buildDate': new FormControl(null)
+      'buildDate': new FormControl(null, [Validators.required])
     });
     this.carFormService.getColorList().subscribe(
       (response: any) => {
