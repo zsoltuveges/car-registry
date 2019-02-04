@@ -11,7 +11,7 @@
     <input matInput placeholder="Szín" formControlName="color" [matAutocomplete]="auto">
   </mat-form-field>
   <mat-autocomplete #auto="matAutocomplete">
-    <mat-option *ngFor="let color of colors" [value]="color">
+    <mat-option *ngFor="let color of filteredOptions | async" [value]="color">
       {{ color }}
     </mat-option>
   </mat-autocomplete>
